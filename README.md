@@ -161,3 +161,14 @@ Here is a description of all the modes available, the options with a DEFAULT cho
 		
 	RESTRICTIONS:
 		No one.		
+
+6) 'umprep':  Used to modify ABAQUS .inp files to make them compatible with MCNP.
+		The prepared output file is coded as filename + [prepd].
+		
+	ADDITIONAL OPTIONS:
+		' -ab <inputfile> '
+			insert the ABAQUS .inp file to modify.
+	
+	RESTRICTIONS:
+		Admitted mesh elements: first and second order tetrahedral.
+		The hypermesh model must be prepared properly, including sets, materials and desities.
