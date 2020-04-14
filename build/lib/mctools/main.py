@@ -19,9 +19,10 @@ from mctools import WW_operator as ww
 from mctools import Red_density  as rd
 from mctools import Corr_density as cd
 from mctools import wrap as wr
+from mctools import umprep as um
 
 # Selectable Modes
-modes=('tovtk','chkfill','lpdebug','fendldown','ww','rd','cd','wrap')
+modes=('tovtk','chkfill','lpdebug','fendldown','ww','rd','cd','wrap','umprep')
 
 #--- Parsing ---
 descrmode='Convert one or multiple .eeout files in .vtk format'
@@ -73,6 +74,10 @@ parser.add_argument('-cf', help='Insert the name of the file containing the corr
 parser.add_argument('-mod', help='Insert the type of file wrap modification',
                    type=str)
 
+# umprep
+parser.add_argument('-ab', help='Insert abaqus inp file to be modified', 
+                    type=str)
+
 args=parser.parse_args()
 
 def main():
@@ -121,6 +126,10 @@ def main():
 
     elif args.mode=='wrap':
         wr.WRAP(args.i,args.mod) 
+        
+    # === UMPREP ===
+    elif args.mode=='umprep':
+        um.PREP(args.ab)
 
     else:
         print('\nSomething went wrong =(')
